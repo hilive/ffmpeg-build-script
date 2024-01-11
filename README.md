@@ -1,5 +1,5 @@
 # ffmpeg
-已经重新基于 [https://github.com/hilive/FFmpeg](https://github.com/hilive/XFFmpeg)
+已经重新基于 [https://github.com/hilive/XFFmpeg](https://github.com/hilive/XFFmpeg)
 
 # mediacodec
 #### Add hard mediacodec support
