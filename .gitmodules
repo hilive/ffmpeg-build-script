@@ -1,3 +1,0 @@
-[submodule "submodules/ffmpeg"]
-	path = submodules/ffmpeg
-	url = https://github.com/hilive/XFFmpeg
