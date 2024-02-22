@@ -1,5 +1,7 @@
 # ffmpeg
-已经重新基于 [https://github.com/hilive/XFFmpeg](https://github.com/hilive/XFFmpeg)
+FFMPEG 代码 [https://github.com/hilive/XFFmpeg](https://github.com/hilive/XFFmpeg)
+
+output 里是编译好的 ffmpeg 库，可以直接使用
 
 # 编译脚本
 ## Android
@@ -11,5 +13,12 @@
 #### Add hard mediacodec support
 #### 添加ffmpeg mediacodec 硬编解码支持
 
-# 说明
-#### 使用方式 avcodec_find_encoder_by_name("h264_hlmediacodec") avcodec_find_decoder_by_name("h264_hlmediacodec")
+# 使用方式
+####  编码
+avcodec_find_encoder_by_name("h264_hlmediacodec") 
+####  解码
+avcodec_find_decoder_by_name("h264_hlmediacodec")
+
+# 更新说明
+1、添加 ffmpeg mediacodec 编解码；
+2、解决部分机型解码绿边和花屏的问题；
