@@ -5,11 +5,9 @@ ABIS=("armeabi-v7a" "arm64-v8a" "x86" "x86_64")
 API_LEVEL=23
 CPP_LEVEL=11
 
-export NDK_PATH=~/Library/Android/sdk/ndk/21.0.6113669
-
-if [[ -z ${NDK_PATH} ]]; then
-  echo "NDK_PATH not defined"
-  exit -101
+if [[ -z ${NDK_ROOT} ]]; then
+  NDK_ROOT=/Volumes/hidisk/data/Library/Android/sdk/ndk/21.0.6113669
+  echo "NDK_ROOT not defined"
 fi
 
 function get_cpu_count() {
@@ -32,7 +30,7 @@ function get_toolchain() {
   HOST_ARCH=$(uname -m)
   case ${HOST_ARCH} in
   i?86) HOST_ARCH=x86 ;;
-  x86_64 | amd64 | arm64) HOST_ARCH=x86_64 ;;
+  x86_64 | amd64) HOST_ARCH=x86_64 ;;
   esac
 
   echo "${HOST_OS}-${HOST_ARCH}"
@@ -141,7 +139,7 @@ function get_clang_target_host() {
 }
 
 function set_android_toolchain_bin() {
-  export PATH=${NDK_PATH}/toolchains/llvm/prebuilt/$(get_toolchain)/bin:$PATH
+  export PATH=${NDK_ROOT}/toolchains/llvm/prebuilt/$(get_toolchain)/bin:$PATH
   echo PATH=$PATH
 }
 
@@ -164,7 +162,7 @@ function set_android_toolchain() {
 
 function get_common_includes() {
   local toolchain=$(get_toolchain)
-  echo "-I${NDK_PATH}/toolchains/llvm/prebuilt/${toolchain}/sysroot/usr/include -I${NDK_PATH}/toolchains/llvm/prebuilt/${toolchain}/sysroot/usr/local/include"
+  echo "-I${NDK_ROOT}/toolchains/llvm/prebuilt/${toolchain}/sysroot/usr/include -I${NDK_ROOT}/toolchains/llvm/prebuilt/${toolchain}/sysroot/usr/local/include"
 }
 
 function get_common_linked_libraries() {
@@ -172,7 +170,7 @@ function get_common_linked_libraries() {
   local arch=$2
   local toolchain=$(get_toolchain)
   local build_host=$(get_build_host_internal "$arch")
-  echo "-L${NDK_PATH}/toolchains/llvm/prebuilt/${toolchain}/${build_host}/lib -L${NDK_PATH}/toolchains/llvm/prebuilt/${toolchain}/sysroot/usr/lib/${build_host}/${api} -L${NDK_PATH}/toolchains/llvm/prebuilt/${toolchain}/lib"
+  echo "-L${NDK_ROOT}/toolchains/llvm/prebuilt/${toolchain}/${build_host}/lib -L${NDK_ROOT}/toolchains/llvm/prebuilt/${toolchain}/sysroot/usr/lib/${build_host}/${api} -L${NDK_ROOT}/toolchains/llvm/prebuilt/${toolchain}/lib"
 }
 
 function set_android_cpu_feature() {
