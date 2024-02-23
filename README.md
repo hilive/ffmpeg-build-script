@@ -1,23 +1,40 @@
-# ffmpeg
-FFMPEG 代码 [https://github.com/hilive/XFFmpeg](https://github.com/hilive/XFFmpeg)
+# 编译脚本
+## ffmpeg
+FFMPEG 代码 https://github.com/hilive/XFFmpeg
 
+## library
 output 里是编译好的 ffmpeg 库，可以直接使用
 
-# 编译脚本
-## Android
-#### 配置 ndk 环境变量 （若报 libgcc_real.a 找不到 可以用 ndk 21.0.6113669 试试）
-#### export NDK_PATH=~/Library/Android/sdk/ndk/21.0.6113669
-
+## examples
+demo https://github.com/xffmpeg/examples
 
 # mediacodec
 #### Add hard mediacodec support
 #### 添加ffmpeg mediacodec 硬编解码支持
 
 # 使用方式
-####  编码
-avcodec_find_encoder_by_name("h264_hlmediacodec") 
-####  解码
+#### encode（编码）
+hevc
+```c
+avcodec_find_encoder_by_name("hevc_hlmediacodec")
+```
+
+h264
+```c
+avcodec_find_encoder_by_name("h264_hlmediacodec")
+```
+
+#### decode（解码）
+hevc
+```c
 avcodec_find_decoder_by_name("h264_hlmediacodec")
+```
+
+h264
+```
+avcodec_find_decoder_by_name("h264_hlmediacodec")
+```
+
 
 # 更新说明
 1、添加 ffmpeg mediacodec 编解码；
