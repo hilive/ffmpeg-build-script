@@ -31,7 +31,7 @@ avcodec_find_decoder_by_name("h264_hlmediacodec")
 ```
 
 h264
-```
+```c
 avcodec_find_decoder_by_name("h264_hlmediacodec")
 ```
 
