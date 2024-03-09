@@ -1,4 +1,4 @@
-# 编译脚本
+# FFmpeg 编译脚本
 ## ffmpeg
 FFMPEG 代码 https://github.com/hilive/XFFmpeg
 
